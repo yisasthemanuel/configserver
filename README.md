@@ -71,7 +71,7 @@ cd cloudconfigserver
 ### Ejecución de la imagen
 
 ```shell
-docker run -d -p 8888:8888 -e CONFIG_REPO_URL=https://github.com/yisasthemanuel/config-repo.git -e CONFIG_REPO_USER=yisasthemanuel -e CONFIG_REPO_PASSWORD=Calendula009$ --name yisas-configserver yisasthemanuel/configserver
+docker run -d -p 8888:8888 -e CONFIG_REPO_URL=https://github.com/yisasthemanuel/config-repo.git -e CONFIG_REPO_USER=yisasthemanuel -e CONFIG_REPO_PASSWORD=Calendula009$ --name yisas-configserver yisasthemanuel/configserver:0.0.1.RELEASE
 ```
 
 ## TO DOs

@@ -12,7 +12,7 @@
 	<artifactId>configserver</artifactId>
 	<version>0.0.1.RELEASE</version>
 	<packaging>jar</packaging>
-	<name>cloudconfigserver</name>
+	<name>yisas-cloudconfigserver</name>
 	<description>Cloud Config Server for Experimental</description>
 
 	<properties>
@@ -33,6 +33,17 @@
 		<dependency>
     		<groupId>org.springframework.boot</groupId>
     		<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		
+		<dependency>
+   			<groupId>io.micrometer</groupId>
+   			<artifactId>micrometer-registry-prometheus</artifactId>
+   			<scope>runtime</scope>
 		</dependency>
 
 		<dependency>
@@ -108,6 +119,17 @@
 	           			</configuration>
 	         		</execution>
 	         		<execution>
+	           			<id>build-image-latest</id>
+	           			<phase>package</phase>
+	           			<goals>
+	             			<goal>build</goal>
+	           			</goals>
+	           			<configuration>
+	          	   			<imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
+	          	   			<tag>latest</tag>
+	           			</configuration>
+	         		</execution>
+	         		<execution>
 	           			<id>push-image</id>
 	           			<phase>install</phase>
 	           			<goals>
@@ -116,6 +138,17 @@
 	           			<configuration>
 	          	   			<imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
 	          	   			<tag>${project.version}</tag>
+	           			</configuration>
+	         		</execution>
+	         		<execution>
+	           			<id>push-image-latest</id>
+	           			<phase>install</phase>
+	           			<goals>
+	             			<goal>push</goal>
+	           			</goals>
+	           			<configuration>
+	          	   			<imageName>${docker.image.prefix}/${project.artifactId}:${project.version}</imageName>
+	          	   			<tag>latest</tag>
 	           			</configuration>
 	         		</execution>
 	       		</executions>
