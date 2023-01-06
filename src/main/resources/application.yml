@@ -16,8 +16,8 @@ spring:
 # Seguridad para acceder al config server. Se utiliza el mecanismo simple de usuario/clave
   security:
     user:
-      name: root
-      password: s3cr3t
+      name: ${CONFIG_SERVER_USER:root}
+      password: ${CONFIG_SERVER_PASSWORD:s3cr3t}
 
 # ACTUATOR - PROMETHEUS
 management:

@@ -2,7 +2,7 @@
 
 ## Introducción
 
-Servidor de configuraciones Cloud para Yisas
+Servidor de configuraciones Cloud para Yisas. Configurado para tomar las propiedades de un repositorio en GitHub y con acceso por usuario/clave
 
 
 ## Desarrollo
@@ -39,6 +39,9 @@ Se deben tener las siguientes variables de entorno para arrancar la aplicación.
 * CONFIG_REPO_URL -> https://github.com/yisasthemanuel/config-repo.git
 * CONFIG_REPO_USER -> yisasthemanuel
 * CONFIG_REPO_PASSWORD -> Calendula009$
+* CONFIG_SERVER_USER -> root
+* CONFIG_SERVER_PASSWORD -> s3cr3t
+
 
 ## Docker
 
@@ -49,6 +52,8 @@ El dockerfile incluye las mismas variables de entorno para poder arrancar Cloud 
 * CONFIG_REPO_URL -> https://github.com/yisasthemanuel/config-repo.git
 * CONFIG_REPO_USER -> yisasthemanuel
 * CONFIG_REPO_PASSWORD -> Calendula009$
+* CONFIG_SERVER_USER -> root
+* CONFIG_SERVER_PASSWORD -> s3cr3t
 
 ### Construcción de imagen Docker
 
@@ -73,6 +78,11 @@ cd cloudconfigserver
 ```shell
 docker run -d -p 8888:8888 -e CONFIG_REPO_URL=https://github.com/yisasthemanuel/config-repo.git -e CONFIG_REPO_USER=yisasthemanuel -e CONFIG_REPO_PASSWORD=Calendula009$ --name yisas-configserver yisasthemanuel/configserver:0.0.1.RELEASE
 ```
+
+## Changelog [ES]
+
+* **0.0.1 (16/11/2019)** - Versión inicial con la configuración apuntando al repositorio de GitHub
+* **0.0.2 (06/01/2023)** - Se añaden los endpoints para la intrumentalización general del microservicio por parte de prometheus y grafana. Se incluye el etiquetado de lastest para la última versión de la imagen generada. Se cambia la configuración a fichero YAML.
 
 ## TO DOs
 
